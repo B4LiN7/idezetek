@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Feladat: ABC szerint rendezés
   document.getElementById("f1")?.addEventListener("click", () => {
     const quotesAbc = Array.from(quotes);
-    quotesAbc.sort((a, b) => a.quote.localeCompare(b.quote));
+    quotesAbc.sort((a, b) => a.author.localeCompare(b.author));
 
     const ul = document.createElement("ul");
 
@@ -66,11 +66,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 4. Felaadat: Darabszám
-  document.getElementById("f4")?.addEventListener("click", () => { 
-    
+  document.getElementById("f4_input")?.addEventListener("input", () => { 
+    const input: HTMLInputElement = document.getElementById("f4_input") as HTMLInputElement;
+    const output: HTMLInputElement = document.getElementById("f4_output") as HTMLInputElement;
+    const mode: HTMLInputElement = document.getElementById("f4_mode") as HTMLInputElement;
 
+    const author: string = input.value.trim();
+    let numberOfQuotes: number = 0;
+    const pontos = mode.checked;
+
+    quotes.forEach((quote) => {
+      if (pontos && quote.author == author) {
+        numberOfQuotes++;
+      }
+      else if (!pontos && quote.author.includes(author)) {
+        numberOfQuotes++;
+      }
+    });
+
+    output.value = numberOfQuotes.toString();
 
   });
-
 
 });

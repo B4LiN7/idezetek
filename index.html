@@ -4,14 +4,18 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Idézetek</title>
   </head>
   <body>
     <div>
       <button id="f1">1. Feladat: ABC</button>
       <button id="f2">2. Feladat: The</button>
       <button id="f3">3. Feladat: Hossz</button>
-      <button id="f4">4. Feladat: Darabszám</button>
+      <br>
+      <input type="text" id="f4_input" placeholder="Szerző idézeteinek száma!">
+      <input type="checkbox" id="f4_mode"><label for="f4_mode">Pontos név</label>
+      :
+      <input type="number" id="f4_output" readonly>
     </div>
     <div id="content"></div>
     <script type="module" src="/src/main.ts"></script>
