@@ -26,13 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     content.appendChild(ul);
   });
 
-  // 2. Felaadat: The kiemelése
+  // 2. Feladat: The kiemelése
   document.getElementById("f2")?.addEventListener("click", () => { 
     let quotesThe: string[] = [];
 
-    quotes.forEach((quote) => {
-        quotesThe.push(quote.quote);
-    });
+    quotesThe = quotes.map((quote) => { return quote.quote });
 
     const ol = document.createElement("ol");
 
