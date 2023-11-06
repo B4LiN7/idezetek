@@ -69,19 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const mode: HTMLInputElement = document.getElementById("f4_mode") as HTMLInputElement;
 
     const author: string = input.value.trim();
-    let numberOfQuotes: number = 0;
     const pontos = mode.checked;
 
-    quotes.forEach((quote) => {
-      if (pontos && quote.author == author) {
-        numberOfQuotes++;
-      }
-      else if (!pontos && quote.author.includes(author)) {
-        numberOfQuotes++;
-      }
-    });
-
-    output.value = numberOfQuotes.toString();
+    if (pontos) {
+      const quotesFound = quotes.filter((q) => {return q.author == author});
+      output.value = quotesFound.length.toString();
+    }
+    else {
+      const quotesFound = quotes.filter((q) => {return q.author.includes(author)});
+      output.value = quotesFound.length.toString();
+    }
 
   });
 
