@@ -30,15 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("f2")?.addEventListener("click", () => { 
     let quotesThe: string[] = [];
 
-    quotesThe = quotes.map((quote) => { return quote.quote });
+    quotesThe = quotes.map((quote) => { 
+      return quote.quote.replace("the", "<b>the</b>").replace("The", "<b>The</b>")
+     });
 
     const ol = document.createElement("ol");
 
     quotesThe.forEach((quote) => {
       const li = document.createElement("li");
-      li.innerHTML = quote.replace("the", "<b>the</b>").replace("The", "<b>The</b>");
+      li.innerHTML = quote;
       ol.appendChild(li);
-
     });
 
     content.innerHTML = "";
@@ -50,9 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("f3")?.addEventListener("click", () => { 
     let quotesLenght: number[] = [];
 
-    quotes.forEach((quote) => {
-        quotesLenght.push(quote.quote.length);
-    });
+    quotesLenght = quotes.map((quote) => {return quote.quote.length})
 
     const p = document.createElement("p");
 
